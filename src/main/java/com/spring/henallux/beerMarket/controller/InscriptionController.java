@@ -1,8 +1,6 @@
 package com.spring.henallux.beerMarket.controller;
 
 
-import com.spring.henallux.beerMarket.Constants;
-import com.spring.henallux.beerMarket.model.UserToDELETE;
 import com.spring.henallux.beerMarket.service.HobbiesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

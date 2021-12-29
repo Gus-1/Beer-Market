@@ -1,7 +1,6 @@
 package com.spring.henallux.beerMarket.controller;
 
 import com.spring.henallux.beerMarket.dataAccess.dao.MagicKeyDAO;
-import com.spring.henallux.beerMarket.dataAccess.dao.MagicKeyDataAccess;
 import com.spring.henallux.beerMarket.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

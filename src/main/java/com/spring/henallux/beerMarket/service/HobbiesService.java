@@ -1,13 +1,12 @@
 package com.spring.henallux.beerMarket.service;
 
-import com.spring.henallux.beerMarket.model.HobbyToDELETE;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 
 @Service
 public class HobbiesService {
-    private ArrayList<HobbyToDELETE> hobbiesList;
+    /*private ArrayList<HobbyToDELETE> hobbiesList;
 
     public HobbiesService() {
         hobbiesList = new ArrayList<>();
@@ -23,5 +22,5 @@ public class HobbiesService {
 
     public void setHobbiesList(ArrayList<HobbyToDELETE> hobbiesList) {
         this.hobbiesList = hobbiesList;
-    }
+    }*/
 }
