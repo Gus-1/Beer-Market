@@ -11,24 +11,24 @@ import java.util.List;
 public class OrderEntity {
 
     @Id
-    @Column(name="orderId")
+    @Column(name="order_id")
     private Integer orderId;
 
     @OneToMany
     private List<OrderLineEntity> orderLineEntities;
 
-    @JoinColumn(name = "customerId", referencedColumnName = "customerId")
+    @JoinColumn(name = "customer_id", referencedColumnName = "customer_id")
     @ManyToOne
     private CustomerEntity customer;
 
-    @JoinColumn(name = "discountId", referencedColumnName = "discountId")
+    @JoinColumn(name = "discount_id", referencedColumnName = "discount_id")
     @ManyToOne
     private DiscountEntity discount;
 
-    @Column(name="orderDate")
+    @Column(name="order_date")
     private Date date;
 
-    @Column(name="VAT")
+    @Column(name="vat")
     private Double vat;
 
     public OrderEntity(){}

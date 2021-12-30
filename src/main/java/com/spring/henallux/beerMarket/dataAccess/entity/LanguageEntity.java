@@ -9,7 +9,7 @@ import javax.persistence.Table;
 @Table(name="language")
 public class LanguageEntity {
     @Id
-    @Column(name="languageId")
+    @Column(name="language_id")
     private Integer language_id;
 
     @Column(name="name")

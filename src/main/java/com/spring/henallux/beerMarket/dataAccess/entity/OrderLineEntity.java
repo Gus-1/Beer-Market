@@ -7,18 +7,19 @@ import java.io.Serializable;
 @Table(name="orderLine")
 public class OrderLineEntity {
 
+    //todo : What todo? :) How to map ?
     @Id
     private OrderLineId orderLineId;
 
-    @JoinColumn(name="orderId", referencedColumnName = "orderId")
+    @JoinColumn(name="order_id", referencedColumnName = "order_id")
     @ManyToOne
     private OrderEntity orderId;
 
-    @JoinColumn(name="beerId", referencedColumnName = "beerId")
+    @JoinColumn(name="beer_id", referencedColumnName = "beer_id")
     @ManyToOne
     private BeerEntity beerId;
 
-    @Column(name="orderLineNumber")
+    @Column(name="order_line_number")
     private Integer orderLineNumber;
 
     @Column(name="quantity")
@@ -41,9 +42,10 @@ public class OrderLineEntity {
     public OrderLineId getOrderLineId() {
         return orderLineId;
     }
-    public void setOrderLineId(OrderLineId orerLineId) {
-        this.orderLineId = orerLineId;
+    public void setOrderLineId(OrderLineId orderLineId) {
+        this.orderLineId = orderLineId;
     }
+
     public OrderEntity getOrderId() {
         return orderId;
     }

@@ -6,7 +6,7 @@ import javax.persistence.*;
 @Table(name="beer")
 public class BeerEntity {
     @Id
-    @Column(name="beerId")
+    @Column(name="beer_id")
     private Integer beerId;
 
     @Column(name="label")
@@ -15,7 +15,7 @@ public class BeerEntity {
     @Column(name="description")
     private String description;
 
-    @Column(name="ABV")
+    @Column(name="abv")
     private Double abv;
 
     @Column(name="flavour")
@@ -24,16 +24,16 @@ public class BeerEntity {
     @Column(name="brewery")
     private String brewery;
 
-    @Column(name="originCountry")
+    @Column(name="origin_country")
     private String originCountry;
 
-    @Column(name="imagePath")
+    @Column(name="image_path")
     private String imagePath;
 
     @Column(name="price")
     private Double price;
 
-    @JoinColumn(name="categoryId", referencedColumnName = "categoryId")
+    @JoinColumn(name="category_id", referencedColumnName = "category_id")
     @ManyToOne
     private CategoryEntity categoryEntity;
 

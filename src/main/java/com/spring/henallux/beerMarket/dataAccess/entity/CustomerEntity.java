@@ -9,19 +9,19 @@ import javax.persistence.Table;
 @Table(name="customer")
 public class CustomerEntity {
     @Id
-    @Column(name="customerId")
+    @Column(name="customer_id")
     private Integer customerId;
 
     @Column(name="name")
     private String name;
 
-    @Column(name="firstName")
+    @Column(name="first_name")
     private String firstName;
 
-    @Column(name="emailAddress")
+    @Column(name="email_address")
     private String email;
 
-    @Column(name="phoneNumber")
+    @Column(name="phone_number")
     private String phoneNumber;
 
     @Column(name="gender")
@@ -30,7 +30,7 @@ public class CustomerEntity {
     @Column(name="address")
     private String address;
 
-    @Column(name="VATnumber")
+    @Column(name="vat_number")
     private String vat;
 
     @Column(name="password")

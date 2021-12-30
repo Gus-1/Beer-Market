@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-//todo : Vérifier les types
 
 @Repository
 public interface CategoryRepository extends JpaRepository<CategoryEntity, Integer> {
