@@ -1,30 +1,20 @@
 package com.spring.henallux.beerMarket.dataAccess.util;
 
-import com.spring.henallux.beerMarket.dataAccess.entity.BeerEntity;
-import com.spring.henallux.beerMarket.dataAccess.entity.CategoryEntity;
-import com.spring.henallux.beerMarket.dataAccess.entity.CustomerEntity;
+import com.spring.henallux.beerMarket.dataAccess.entity.*;
 import com.spring.henallux.beerMarket.model.Beer;
 import com.spring.henallux.beerMarket.model.Category;
 import com.spring.henallux.beerMarket.model.Customer;
+import com.spring.henallux.beerMarket.model.Order;
 import org.dozer.DozerBeanMapper;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 @Component
 public class ProviderConverter {
 
     DozerBeanMapper mapper = new DozerBeanMapper();
-/*
-    public UserEntityToDELETE userModelToUserEntity(UserToDELETE userToDELETE) {
-        UserEntityToDELETE userEntityToDELETE = new UserEntityToDELETE();
-        mapper.map(userToDELETE, userEntityToDELETE);
-        return userEntityToDELETE;
-    }
-
-    public UserToDELETE userEntityToUserModel(UserEntityToDELETE userEntityToDELETE) {
-        UserToDELETE userToDELETE = new UserToDELETE();
-        mapper.map(userEntityToDELETE, userToDELETE);
-        return userToDELETE;
-    }*/
 
     public Customer customerEntityToCustomerModel(CustomerEntity customerEntity){
         Customer customer = mapper.map(customerEntity, Customer.class);
@@ -48,5 +38,28 @@ public class ProviderConverter {
 
     public Category categoryEntityToCategoryModel(CategoryEntity categoryEntity){
         return mapper.map(categoryEntity, Category.class);
+    }
+
+    public OrderEntity orderModelToOrderEntity(Order order){
+        OrderEntity orderEntity = mapper.map(order, OrderEntity.class);
+
+        orderEntity.setOrderLineEntities(order.getOrderLines().stream()
+                .map(orderLine -> {
+                    OrderLineEntity orderLineEntity = new OrderLineEntity();
+                    BeerEntity beerEntity = mapper.map(orderLine.getBeer(), BeerEntity.class);
+
+                    orderLineEntity.setOrderId(orderEntity);
+                    orderLineEntity.setBeerId(beerEntity);
+                    orderLineEntity.setPrice(beerEntity.getPrice());
+                    orderLineEntity.setQuantity(orderLine.getQuantity());
+
+                    return orderLineEntity;
+                }).collect(Collectors.toCollection(ArrayList::new)));
+
+        return orderEntity;
+    }
+
+    public Order orderEntityToOrderModel(OrderEntity orderEntity){
+        return mapper.map(orderEntity, Order.class);
     }
 }

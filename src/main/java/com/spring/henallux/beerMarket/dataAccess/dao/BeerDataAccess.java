@@ -7,4 +7,5 @@ import java.util.ArrayList;
 
 public interface BeerDataAccess {
     Beer getBeerById(Integer beerId);
+    ArrayList<Beer> getAllBeersByCategory(Integer categoryId);
 }

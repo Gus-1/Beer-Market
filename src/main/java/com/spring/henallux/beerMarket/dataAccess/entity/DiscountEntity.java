@@ -9,7 +9,7 @@ import javax.persistence.Table;
 @Table(name="discount")
 public class DiscountEntity {
     @Id
-    @Column(name="discount_id")
+    @Column(name="discountId")
     private Integer discountId;
 
     @Column(name="code")

@@ -7,12 +7,12 @@ public class Order {
     private Integer orderId;
     private List<OrderLine> orderLines;
     private GregorianCalendar orderDate;
-    private UserToDELETE customer;
+    private Customer customer;
     private Float VAT;
 
     public Order(){}
 
-    public Order(List<OrderLine> orderLines, GregorianCalendar orderDate, UserToDELETE customer){
+    public Order(List<OrderLine> orderLines, GregorianCalendar orderDate, Customer customer){
         this.orderLines = orderLines;
         this.orderDate = orderDate;
         this.customer = customer;
@@ -42,11 +42,11 @@ public class Order {
         this.orderDate = orderDate;
     }
 
-    public UserToDELETE getCustomer() {
+    public Customer getCustomer() {
         return customer;
     }
 
-    public void setCustomer(UserToDELETE customer) {
+    public void setCustomer(Customer customer) {
         this.customer = customer;
     }
 

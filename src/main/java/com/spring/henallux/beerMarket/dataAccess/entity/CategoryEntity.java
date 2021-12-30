@@ -9,7 +9,7 @@ import javax.persistence.Table;
 @Table(name="category")
 public class CategoryEntity {
     @Id
-    @Column(name="category_id")
+    @Column(name="categoryId")
     private Integer categoryId;
 
     public CategoryEntity(){}

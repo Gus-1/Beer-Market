@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
 @RequestMapping(value="/inscription")
-@SessionAttributes({Constants.CURRENT_USER})
+//@SessionAttributes({Constants.CURRENT_USER})
 public class InscriptionController {
-    private HobbiesService hobbiesService;
+    /*private HobbiesService hobbiesService;
 
     @ModelAttribute(Constants.CURRENT_USER)
     public UserToDELETE user(){
@@ -37,5 +37,5 @@ public class InscriptionController {
     @RequestMapping(value = "/send", method = RequestMethod.POST)
     public String getFormData(Model model, @ModelAttribute(value=Constants.CURRENT_USER) UserToDELETE userToDELETE, final BindingResult errors) {
         return "redirect:/gift";
-    }
+    }*/
 }

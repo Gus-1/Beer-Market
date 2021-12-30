@@ -1,17 +1,20 @@
 package com.spring.henallux.beerMarket.dataAccess.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@Table(name="category_translation")
+@Table(name="categoryTranslation")
 public class TranslationCategoryEntity {
+
     @Id
-    @JoinColumn(name="category_id", referencedColumnName = "category_id")
+    private TranslationCategoryId translationCategoryId;
+
+    @JoinColumn(name="categoryId", referencedColumnName = "categoryId")
     @ManyToOne
     private CategoryEntity categoryId;
 
-    @Id
-    @JoinColumn(name="language_id", referencedColumnName = "language_id")
+    @JoinColumn(name="languageId", referencedColumnName = "languageId")
     @ManyToOne
     private LanguageEntity languageEntity;
 
@@ -19,6 +22,14 @@ public class TranslationCategoryEntity {
     private String label;
 
     public TranslationCategoryEntity(){}
+
+    public TranslationCategoryId getTranslationCategoryId() {
+        return translationCategoryId;
+    }
+
+    public void setTranslationCategoryId(TranslationCategoryId translationCategoryId) {
+        this.translationCategoryId = translationCategoryId;
+    }
 
     public CategoryEntity getCategoryId() {
         return categoryId;

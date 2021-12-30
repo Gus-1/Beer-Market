@@ -1,24 +1,24 @@
 package com.spring.henallux.beerMarket.dataAccess.entity;
 
-import com.spring.henallux.beerMarket.model.OrderLine;
-
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@Table(name="order_line")
+@Table(name="orderLine")
 public class OrderLineEntity {
 
     @Id
-    @JoinColumn(name="order_id", referencedColumnName = "order_id")
+    private OrderLineId orderLineId;
+
+    @JoinColumn(name="orderId", referencedColumnName = "orderId")
     @ManyToOne
     private OrderEntity orderId;
 
-    @Id
-    @JoinColumn(name="beer_id", referencedColumnName = "beer_id")
+    @JoinColumn(name="beerId", referencedColumnName = "beerId")
     @ManyToOne
     private BeerEntity beerId;
 
-    @Column(name="order_line_number")
+    @Column(name="orderLineNumber")
     private Integer orderLineNumber;
 
     @Column(name="quantity")
@@ -29,7 +29,8 @@ public class OrderLineEntity {
 
     public OrderLineEntity(){}
 
-    public OrderLineEntity(OrderEntity orderId, BeerEntity beerId, Integer orderLineNumber, Integer quantity, Double price) {
+    public OrderLineEntity(OrderLineId orderLineId, OrderEntity orderId, BeerEntity beerId, Integer orderLineNumber, Integer quantity, Double price) {
+        this.orderLineId = orderLineId;
         this.orderId = orderId;
         this.beerId = beerId;
         this.orderLineNumber = orderLineNumber;
@@ -37,6 +38,12 @@ public class OrderLineEntity {
         this.price = price;
     }
 
+    public OrderLineId getOrderLineId() {
+        return orderLineId;
+    }
+    public void setOrderLineId(OrderLineId orerLineId) {
+        this.orderLineId = orerLineId;
+    }
     public OrderEntity getOrderId() {
         return orderId;
     }

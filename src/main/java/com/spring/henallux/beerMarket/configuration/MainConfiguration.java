@@ -15,14 +15,6 @@ import java.util.Locale;
 @Configuration
 public class MainConfiguration implements WebMvcConfigurer {
 
-    /*@Bean
-    public ViewResolver viewResolver(){
-        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        resolver.setPrefix("/WEB-INF/jsp/");
-        resolver.setSuffix(".jsp");
-        return resolver;
-    }*/
-
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         LocaleChangeInterceptor interceptor = new LocaleChangeInterceptor();
@@ -33,7 +25,7 @@ public class MainConfiguration implements WebMvcConfigurer {
     @Bean
     public LocaleResolver localeResolver() {
         CookieLocaleResolver resolver = new CookieLocaleResolver();
-        resolver.setDefaultLocale(new Locale("fr"));
+        resolver.setDefaultLocale(new Locale("fr"));   //Can be changed to 'en' for base language
         resolver.setCookieName("localeCookie");
         resolver.setCookieMaxAge(-1);
         return resolver;

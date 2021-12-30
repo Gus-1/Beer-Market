@@ -4,26 +4,31 @@ package com.spring.henallux.beerMarket.dataAccess.entity;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 @Entity
-@Table(name="order")
+@Table(name="orders")
 public class OrderEntity {
+
     @Id
-    @Column(name="order_id")
+    @Column(name="orderId")
     private Integer orderId;
 
-    @JoinColumn(name = "customer_id", referencedColumnName = "customer_id")
+    @OneToMany
+    private List<OrderLineEntity> orderLineEntities;
+
+    @JoinColumn(name = "customerId", referencedColumnName = "customerId")
     @ManyToOne
     private CustomerEntity customer;
 
-    @JoinColumn(name = "discount_id", referencedColumnName = "discount_id")
+    @JoinColumn(name = "discountId", referencedColumnName = "discountId")
     @ManyToOne
     private DiscountEntity discount;
 
-    @Column(name="order_date")
+    @Column(name="orderDate")
     private Date date;
 
-    @Column(name="vat")
+    @Column(name="VAT")
     private Double vat;
 
     public OrderEntity(){}
@@ -74,5 +79,13 @@ public class OrderEntity {
 
     public void setVat(Double vat) {
         this.vat = vat;
+    }
+
+    public List<OrderLineEntity> getOrderLineEntities() {
+        return orderLineEntities;
+    }
+
+    public void setOrderLineEntities(List<OrderLineEntity> orderLineEntities) {
+        this.orderLineEntities = orderLineEntities;
     }
 }

@@ -4,4 +4,5 @@ import com.spring.henallux.beerMarket.model.Customer;
 
 public interface CustomerDataAccess {
     Customer save(Customer customer);
+    Customer findCustomerByEmail(String email);
 }

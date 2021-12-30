@@ -10,16 +10,6 @@
 </head>
 <body>
     Welcome our wonderful world !
-
-    <form:form id="form" method="POST"  action="/firstSpring/hello/send"  modelAttribute="magicKeyForm">
-        <form:label path="magicKey">
-            <spring:message code="magicKeyLabel"/>
-        </form:label>
-
-        <form:input path="magicKey"></form:input>
-        <form:button>
-            <spring:message code= "magicKeySendButton"/>
-        </form:button>
-    </form:form>
+    ${title}
 </body>
 </html>

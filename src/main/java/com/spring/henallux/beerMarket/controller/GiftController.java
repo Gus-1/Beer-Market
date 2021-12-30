@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
 @RequestMapping(value = "/gift")
-@SessionAttributes({Constants.CURRENT_USER})
+//@SessionAttributes({Constants.CURRENT_USER})
 public class GiftController {
-    private GiftService giftService;
+    /*private GiftService giftService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String home (Model model, @ModelAttribute(value= Constants.CURRENT_USER) UserToDELETE userToDELETE){
@@ -25,5 +25,5 @@ public class GiftController {
     @Autowired
     public GiftController(GiftService giftService){
         this.giftService = giftService;
-    }
+    }*/
 }
