@@ -4,7 +4,10 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -16,13 +19,22 @@ import static org.springframework.util.StringUtils.isEmpty;
 public class Customer implements UserDetails {
 
     private Integer id;
-
+    @NotEmpty
     private String username;
+    @NotEmpty
     private String firstName;
+    @NotEmpty
+    @Email
     private String emailAddress;
+    @NotEmpty
+    @Pattern(regexp = "((\\+|00)32)?[0-9]+")
+    @Size(min = 9, max = 13)
     private String phoneNumber;
+    @NotEmpty
     private String address;    //todo : Peut être séparer ça en Street, Number, City, Country
+
     private String vatNumber;
+    @NotEmpty
     private String password;
 
 
@@ -50,6 +62,8 @@ public class Customer implements UserDetails {
 
         return grantedAuthorities;
     }
+
+
 
     @Override
     public String getPassword() {

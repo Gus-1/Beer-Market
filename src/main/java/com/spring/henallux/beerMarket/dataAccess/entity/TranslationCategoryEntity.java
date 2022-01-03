@@ -4,19 +4,19 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name="categoryTranslation")
+@Table(name="category_translation")
 public class TranslationCategoryEntity {
 
-    @Id
+    @EmbeddedId
     private TranslationCategoryId translationCategoryId;
 
-    @JoinColumn(name="category_id", referencedColumnName = "category_id")
+    /*@JoinColumn(name="category_id", referencedColumnName = "category_id")
     @ManyToOne
     private CategoryEntity categoryId;
 
     @JoinColumn(name="language_id", referencedColumnName = "language_id")
     @ManyToOne
-    private LanguageEntity languageEntity;
+    private LanguageEntity languageEntity;*/
 
     @Column(name="label")
     private String label;
@@ -31,7 +31,7 @@ public class TranslationCategoryEntity {
         this.translationCategoryId = translationCategoryId;
     }
 
-    public CategoryEntity getCategoryId() {
+    /*public CategoryEntity getCategoryId() {
         return categoryId;
     }
 
@@ -45,7 +45,7 @@ public class TranslationCategoryEntity {
 
     public void setLanguageEntity(LanguageEntity languageEntity) {
         this.languageEntity = languageEntity;
-    }
+    }*/
 
     public String getLabel() {
         return label;

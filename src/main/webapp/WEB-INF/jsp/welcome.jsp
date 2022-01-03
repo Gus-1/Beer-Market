@@ -9,7 +9,7 @@
     <title>${title}</title>
 </head>
 <body>
-    Welcome our wonderful world !
-    ${title}
+
+    ${beer.getLabel()}
 </body>
 </html>

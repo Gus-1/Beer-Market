@@ -1,13 +1,16 @@
 package com.spring.henallux.beerMarket.dataAccess.entity;
 
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.io.Serializable;
 
+@Embeddable
 public class TranslationCategoryId implements Serializable {
 
+    @JoinColumn(name="category_id", referencedColumnName = "category_id")
+    @ManyToOne
     private CategoryEntity categoryId;
+    @JoinColumn(name="language_id", referencedColumnName = "language_id")
+    @ManyToOne
     private LanguageEntity languageEntity;
 
     public TranslationCategoryId() {}

@@ -1,8 +1,13 @@
 package com.spring.henallux.beerMarket.model;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PositiveOrZero;
+
 //todo : A voir dans le schéma de la DB si tout est bon
 public class OrderLine {
     private Beer beer;
+    @NotNull
+    @PositiveOrZero
     private Integer quantity;
 
     public OrderLine(){}

@@ -83,6 +83,7 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-orm:5.3.10" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aspects:5.3.10" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.25" />
+          <element id="library" level="project" name="Maven: javax.validation:validation-api:2.0.1.Final" />
           <element id="library" level="project" name="Maven: net.sf.dozer:dozer:5.5.1" />
           <element id="library" level="project" name="Maven: commons-beanutils:commons-beanutils:1.9.1" />
           <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.1" />

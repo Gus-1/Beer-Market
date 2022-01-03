@@ -1,10 +1,7 @@
 package com.spring.henallux.beerMarket.dataAccess.util;
 
 import com.spring.henallux.beerMarket.dataAccess.entity.*;
-import com.spring.henallux.beerMarket.model.Beer;
-import com.spring.henallux.beerMarket.model.Category;
-import com.spring.henallux.beerMarket.model.Customer;
-import com.spring.henallux.beerMarket.model.Order;
+import com.spring.henallux.beerMarket.model.*;
 import org.dozer.DozerBeanMapper;
 import org.springframework.stereotype.Component;
 
@@ -60,5 +57,15 @@ public class ProviderConverter {
 
     public Order orderEntityToOrderModel(OrderEntity orderEntity){
         return mapper.map(orderEntity, Order.class);
+    }
+
+
+    public CategoryTranslation translationCategoryEntityToCategoryTranslation(TranslationCategoryEntity translationCategoryEntity){
+        CategoryTranslation categoryTranslation = new CategoryTranslation();
+
+        categoryTranslation.setLabel(translationCategoryEntity.getLabel());
+        categoryTranslation.setCategoryId(translationCategoryEntity.getTranslationCategoryId().getCategoryId().getCategoryId());
+
+        return categoryTranslation;
     }
 }
