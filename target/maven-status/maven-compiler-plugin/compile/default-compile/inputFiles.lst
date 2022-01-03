@@ -1,4 +1,5 @@
 C:\Users\augus\OneDrive\Cours\Application_Web_(Java)\Java Project\Projet\beerMarket\src\main\java\com\spring\henallux\beerMarket\configuration\TilesConfiguration.java
+C:\Users\augus\OneDrive\Cours\Application_Web_(Java)\Java Project\Projet\beerMarket\src\main\java\com\spring\henallux\beerMarket\controller\LoginController.java
 C:\Users\augus\OneDrive\Cours\Application_Web_(Java)\Java Project\Projet\beerMarket\src\main\java\com\spring\henallux\beerMarket\dataAccess\entity\TranslationCategoryEntity.java
 C:\Users\augus\OneDrive\Cours\Application_Web_(Java)\Java Project\Projet\beerMarket\src\main\java\com\spring\henallux\beerMarket\dataAccess\repository\OrderRepository.java
 C:\Users\augus\OneDrive\Cours\Application_Web_(Java)\Java Project\Projet\beerMarket\src\main\java\com\spring\henallux\beerMarket\dataAccess\dao\CategoryDAO.java
@@ -10,6 +11,7 @@ C:\Users\augus\OneDrive\Cours\Application_Web_(Java)\Java Project\Projet\beerMar
 C:\Users\augus\OneDrive\Cours\Application_Web_(Java)\Java Project\Projet\beerMarket\src\main\java\com\spring\henallux\beerMarket\configuration\MainConfiguration.java
 C:\Users\augus\OneDrive\Cours\Application_Web_(Java)\Java Project\Projet\beerMarket\src\main\java\com\spring\henallux\beerMarket\dataAccess\repository\OrderLineRepository.java
 C:\Users\augus\OneDrive\Cours\Application_Web_(Java)\Java Project\Projet\beerMarket\src\main\java\com\spring\henallux\beerMarket\model\Category.java
+C:\Users\augus\OneDrive\Cours\Application_Web_(Java)\Java Project\Projet\beerMarket\src\main\java\com\spring\henallux\beerMarket\controller\BeerController.java
 C:\Users\augus\OneDrive\Cours\Application_Web_(Java)\Java Project\Projet\beerMarket\src\main\java\com\spring\henallux\beerMarket\model\Beer.java
 C:\Users\augus\OneDrive\Cours\Application_Web_(Java)\Java Project\Projet\beerMarket\src\main\java\com\spring\henallux\beerMarket\dataAccess\repository\CustomerRepository.java
 C:\Users\augus\OneDrive\Cours\Application_Web_(Java)\Java Project\Projet\beerMarket\src\main\java\com\spring\henallux\beerMarket\controller\InscriptionController.java
@@ -23,18 +25,19 @@ C:\Users\augus\OneDrive\Cours\Application_Web_(Java)\Java Project\Projet\beerMar
 C:\Users\augus\OneDrive\Cours\Application_Web_(Java)\Java Project\Projet\beerMarket\src\main\java\com\spring\henallux\beerMarket\model\CategoryTranslation.java
 C:\Users\augus\OneDrive\Cours\Application_Web_(Java)\Java Project\Projet\beerMarket\src\main\java\com\spring\henallux\beerMarket\FirstSpringProjectApplication.java
 C:\Users\augus\OneDrive\Cours\Application_Web_(Java)\Java Project\Projet\beerMarket\src\main\java\com\spring\henallux\beerMarket\dataAccess\entity\CustomerEntity.java
+C:\Users\augus\OneDrive\Cours\Application_Web_(Java)\Java Project\Projet\beerMarket\src\main\java\com\spring\henallux\beerMarket\dataAccess\repository\CategoryTranslationRepository.java
 C:\Users\augus\OneDrive\Cours\Application_Web_(Java)\Java Project\Projet\beerMarket\src\main\java\com\spring\henallux\beerMarket\dataAccess\repository\BeerRepository.java
 C:\Users\augus\OneDrive\Cours\Application_Web_(Java)\Java Project\Projet\beerMarket\src\main\java\com\spring\henallux\beerMarket\dataAccess\util\ProviderConverter.java
 C:\Users\augus\OneDrive\Cours\Application_Web_(Java)\Java Project\Projet\beerMarket\src\main\java\com\spring\henallux\beerMarket\controller\Constants.java
 C:\Users\augus\OneDrive\Cours\Application_Web_(Java)\Java Project\Projet\beerMarket\src\main\java\com\spring\henallux\beerMarket\configuration\WebSecurityConfiguration.java
 C:\Users\augus\OneDrive\Cours\Application_Web_(Java)\Java Project\Projet\beerMarket\src\main\java\com\spring\henallux\beerMarket\controller\SuperController.java
 C:\Users\augus\OneDrive\Cours\Application_Web_(Java)\Java Project\Projet\beerMarket\src\main\java\com\spring\henallux\beerMarket\dataAccess\entity\CategoryEntity.java
-C:\Users\augus\OneDrive\Cours\Application_Web_(Java)\Java Project\Projet\beerMarket\src\main\java\com\spring\henallux\beerMarket\controller\GiftController.java
 C:\Users\augus\OneDrive\Cours\Application_Web_(Java)\Java Project\Projet\beerMarket\src\main\java\com\spring\henallux\beerMarket\controller\HomeController.java
 C:\Users\augus\OneDrive\Cours\Application_Web_(Java)\Java Project\Projet\beerMarket\src\main\java\com\spring\henallux\beerMarket\dataAccess\dao\BeerDataAccess.java
 C:\Users\augus\OneDrive\Cours\Application_Web_(Java)\Java Project\Projet\beerMarket\src\main\java\com\spring\henallux\beerMarket\model\Order.java
 C:\Users\augus\OneDrive\Cours\Application_Web_(Java)\Java Project\Projet\beerMarket\src\main\java\com\spring\henallux\beerMarket\dataAccess\entity\BeerEntity.java
 C:\Users\augus\OneDrive\Cours\Application_Web_(Java)\Java Project\Projet\beerMarket\src\main\java\com\spring\henallux\beerMarket\dataAccess\dao\BeerDAO.java
+C:\Users\augus\OneDrive\Cours\Application_Web_(Java)\Java Project\Projet\beerMarket\src\main\java\com\spring\henallux\beerMarket\controller\CartController.java
 C:\Users\augus\OneDrive\Cours\Application_Web_(Java)\Java Project\Projet\beerMarket\src\main\java\com\spring\henallux\beerMarket\dataAccess\dao\CategoryDataAccess.java
 C:\Users\augus\OneDrive\Cours\Application_Web_(Java)\Java Project\Projet\beerMarket\src\main\java\com\spring\henallux\beerMarket\model\OrderLine.java
 C:\Users\augus\OneDrive\Cours\Application_Web_(Java)\Java Project\Projet\beerMarket\src\main\java\com\spring\henallux\beerMarket\dataAccess\dao\CustomerDataAccess.java

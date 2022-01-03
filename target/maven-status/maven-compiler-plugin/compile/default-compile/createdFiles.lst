@@ -1,4 +1,5 @@
 com\spring\henallux\beerMarket\dataAccess\entity\CategoryEntity.class
+com\spring\henallux\beerMarket\dataAccess\repository\CategoryTranslationRepository.class
 com\spring\henallux\beerMarket\dataAccess\entity\OrderLineId.class
 com\spring\henallux\beerMarket\dataAccess\entity\LanguageEntity.class
 com\spring\henallux\beerMarket\dataAccess\repository\BeerRepository.class
@@ -13,13 +14,13 @@ com\spring\henallux\beerMarket\configuration\WebSecurityConfiguration.class
 com\spring\henallux\beerMarket\dataAccess\dao\OrderDAO.class
 com\spring\henallux\beerMarket\service\GiftService.class
 com\spring\henallux\beerMarket\dataAccess\util\ProviderConverter.class
+com\spring\henallux\beerMarket\controller\CartController.class
 com\spring\henallux\beerMarket\dataAccess\entity\TranslationCategoryId.class
 com\spring\henallux\beerMarket\model\CategoryTranslation.class
 com\spring\henallux\beerMarket\dataAccess\dao\CustomerDataAccess.class
 com\spring\henallux\beerMarket\model\Customer.class
 com\spring\henallux\beerMarket\configuration\MainConfiguration.class
 com\spring\henallux\beerMarket\dataAccess\repository\CategoryRepository.class
-com\spring\henallux\beerMarket\controller\GiftController.class
 com\spring\henallux\beerMarket\configuration\TilesConfiguration.class
 com\spring\henallux\beerMarket\model\Beer.class
 com\spring\henallux\beerMarket\dataAccess\dao\OrderDataAccess.class
@@ -28,6 +29,7 @@ com\spring\henallux\beerMarket\dataAccess\dao\BeerDAO.class
 com\spring\henallux\beerMarket\dataAccess\dao\CategoryDAO.class
 com\spring\henallux\beerMarket\dataAccess\repository\OrderLineRepository.class
 com\spring\henallux\beerMarket\dataAccess\repository\OrderRepository.class
+com\spring\henallux\beerMarket\controller\LoginController.class
 com\spring\henallux\beerMarket\dataAccess\entity\OrderLineEntity.class
 com\spring\henallux\beerMarket\dataAccess\repository\CustomerRepository.class
 com\spring\henallux\beerMarket\model\Category.class
@@ -37,6 +39,7 @@ com\spring\henallux\beerMarket\dataAccess\entity\TranslationCategoryEntity.class
 com\spring\henallux\beerMarket\service\HobbiesService.class
 com\spring\henallux\beerMarket\dataAccess\dao\CategoryDataAccess.class
 com\spring\henallux\beerMarket\dataAccess\entity\CustomerEntity.class
+com\spring\henallux\beerMarket\controller\BeerController.class
 com\spring\henallux\beerMarket\controller\SuperController.class
 com\spring\henallux\beerMarket\dataAccess\dao\BeerDataAccess.class
 com\spring\henallux\beerMarket\model\OrderLine.class
