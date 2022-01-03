@@ -12,6 +12,7 @@ public class Order {
 
     public Order(){}
 
+    //Cas d'une commande. Nous n'avons pas de VAT dans ce cas
     public Order(List<OrderLine> orderLines, GregorianCalendar orderDate, Customer customer){
         this.orderLines = orderLines;
         this.orderDate = orderDate;

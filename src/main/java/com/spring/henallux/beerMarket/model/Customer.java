@@ -14,8 +14,7 @@ import java.util.List;
 
 import static org.springframework.util.StringUtils.isEmpty;
 
-//Todo : On peut mettre des notEmpty sur les attributs ?
-//Todo : Ajouter une date de naissance ?
+
 public class Customer implements UserDetails {
 
     private Integer id;
@@ -31,11 +30,13 @@ public class Customer implements UserDetails {
     @Size(min = 9, max = 13)
     private String phoneNumber;
     @NotEmpty
-    private String address;    //todo : Peut être séparer ça en Street, Number, City, Country
+    private String address;
 
     private String vatNumber;
     @NotEmpty
     private String password;
+    @NotEmpty
+    private String confirmationPassword;
 
 
     private String authorities;
@@ -186,5 +187,13 @@ public class Customer implements UserDetails {
 
     public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public String getConfirmationPassword() {
+        return confirmationPassword;
+    }
+
+    public void setConfirmationPassword(String confirmationPassword) {
+        this.confirmationPassword = confirmationPassword;
     }
 }
