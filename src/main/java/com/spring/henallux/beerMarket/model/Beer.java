@@ -11,14 +11,14 @@ public class Beer {
     private String flavour;
     private String brewery;
     private String originCountry;
-    private String photoPath;
+    private String imagePath;
     private Double abv;
     private Category category;
 
     public Beer(){}
 
     public Beer(Integer beerId, String label, String description, Double price, String flavour, String brewery, String originCountry,
-                String photoPath, Double abv, Category category){
+                String imagePath, Double abv, Category category){
         this.beerId = beerId;
         this.label = label;
         this.description = description;
@@ -26,7 +26,7 @@ public class Beer {
         this.flavour = flavour;
         this.brewery = brewery;
         this.originCountry = originCountry;
-        this.photoPath = photoPath;
+        this.imagePath = imagePath;
         this.abv = abv;
         this.category = category;
     }
@@ -87,12 +87,12 @@ public class Beer {
         this.originCountry = originCountry;
     }
 
-    public String getPhotoPath() {
-        return photoPath;
+    public String getImagePath() {
+        return imagePath;
     }
 
-    public void setPhotoPath(String photoPath) {
-        this.photoPath = photoPath;
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 
     public Double getAbv() {

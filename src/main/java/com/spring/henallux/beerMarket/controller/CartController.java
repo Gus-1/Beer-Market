@@ -35,7 +35,7 @@ public class CartController extends SuperController {
     @RequestMapping(method = RequestMethod.GET)
     public String getCart(Model model, @ModelAttribute(value = Constants.CURRENT_CART) HashMap<Integer, OrderLine> cart){
         //model.addAttribute("categories", super.getAllCategories());
-        model.addAttribute("title", "Details");
+        model.addAttribute("title", "Cart Details");
         model.addAttribute("orderLine", new OrderLine());
 
         if(!model.containsAttribute("cart")){

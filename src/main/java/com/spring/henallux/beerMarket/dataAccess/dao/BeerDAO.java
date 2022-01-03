@@ -32,7 +32,13 @@ public class BeerDAO implements BeerDataAccess{
 
     @Override
     public ArrayList<Beer> getAllBeersByCategory(Integer categoryId) {
-        List<BeerEntity> beerEntitiesList = beerRepository.findBeerEntitiesByCategoryEntityCategoryId(categoryId);
+        List<BeerEntity> beerEntitiesList;
+
+        if (categoryId != 0){
+            beerEntitiesList = beerRepository.findBeerEntitiesByCategoryEntityCategoryId(categoryId);
+        } else {
+            beerEntitiesList = beerRepository.findAll();
+        }
 
         ArrayList<Beer> beers = new ArrayList<>();
 

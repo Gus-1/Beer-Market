@@ -10,6 +10,6 @@
 </head>
 <body>
 
-    ${beer.getLabel()}
+    ${title.getLabel()}
 </body>
 </html>

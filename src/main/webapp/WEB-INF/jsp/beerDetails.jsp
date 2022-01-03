@@ -23,6 +23,7 @@
     <!-- custom javascript -->
     <script src="<spring:url value='/vendor/js/script.js' />" type="text/javascript"></script>
 
+    <title>${title}</title>
 
 </head>
 <body>
@@ -31,7 +32,7 @@
         <aside class="col-md-6">
             <article class="gallery-wrap">
                 <div class="img-big-wrap">
-                    <a href="#"> <img src="<spring:url value="/images/beers/Ayinger_Celebrator_Doppelbock.jpg" />"  ></a>
+                    <a href="#"> <img src="<spring:url value="${beer.getImagePath()}" />"  ></a>
                 </div> <!-- img-big-wrap.// -->
 
             </article> <!-- gallery-wrap .end// -->

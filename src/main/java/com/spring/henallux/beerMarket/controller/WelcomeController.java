@@ -16,21 +16,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping(value="/hello")
-public class WelcomeController {
+public class WelcomeController extends SuperController{
     private BeerDataAccess beerDataAccess;
-    private CategoryDataAccess categoryDataAccess;
 
     @Autowired
-    public WelcomeController(BeerDataAccess beerDataAccess, CategoryDataAccess categoryDataAccess){
+    public WelcomeController(CategoryDataAccess categoryDataAccess, BeerDataAccess beerDataAccess, CategoryDataAccess categoryDataAccess1) {
+        super(categoryDataAccess);
         this.beerDataAccess = beerDataAccess;
-        this.categoryDataAccess = categoryDataAccess;
     }
 
 
     @RequestMapping(method = RequestMethod.GET)
     public String home (Model model){
 
-        model.addAttribute("title", categoryDataAccess.getAllCategories().get(0).getCategoryId());
+        //model.addAttribute("title", super.getAllCategories().get(0).getCategoryId());
+        model.addAttribute("title", beerDataAccess.getAllBeersByCategory(0));
         model.addAttribute("magicKeyForm", "value");
 
         return "integrated:welcome";

@@ -27,12 +27,19 @@ public class BeersController extends SuperController{
         this.beerDataAccess = beerDataAccess;
     }
 
-    @RequestMapping (value = "/{beerId}", method = RequestMethod.GET)
+    @RequestMapping (value = "/{category}", method = RequestMethod.GET)
     public String getBeers (@PathVariable("category") Integer categoryId, Model model) {
         ArrayList<CategoryTranslation> categories = super.getAllCategories();
 
-        String categoryChosen =  categories.stream().filter(category -> category.getCategoryId().equals(categoryId))
-                        .map(CategoryTranslation::getLabel).collect(Collectors.toCollection(ArrayList :: new)).get(0);
+        String categoryChosen;
+
+        if (categoryId != 0){
+            categoryChosen =  categories.stream().filter(category -> category.getCategoryId().equals(categoryId))
+                    .map(CategoryTranslation::getLabel).collect(Collectors.toCollection(ArrayList :: new)).get(0);
+        } else {
+            //todo : Faire une traduction pour all beers
+            categoryChosen = "Toutes les bières";
+        }
 
         model.addAttribute("categories", categories);
         model.addAttribute("categoryChosen", categoryChosen);
