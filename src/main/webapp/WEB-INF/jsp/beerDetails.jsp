@@ -64,31 +64,20 @@
                 </dl>
 
                 <hr>
-                <div class="row">
-                    <div class="form-group col-md flex-grow-0">
-                        <label>Quantity</label>
-                        <div class="input-group mb-3 input-spinner">
-                            <div class="input-group-prepend">
-                                <button class="btn btn-light" type="button" id="button-plus" > + </button>
-                            </div>
-                            <input type="text" class="form-control" value="1">
-                            <div class="input-group-append">
-                                <button class="btn btn-light" type="button" id="button-minus"> &minus; </button>
-                            </div>
-                        </div>
-                    </div> <!-- col.// -->
-
-                </div> <!-- row.// -->
 
                 <!-- <a href="#" class="btn  btn-outline-primary"> <span class="text">Add to cart</span> <i class="fas fa-shopping-cart"></i>  </a> -->
                 <form:form id="addToCartForm" method="post" action="/cart/add/${beer.getBeerId()}" modelAttribute="orderLine">
+
+
                     <div class="row">
                         <div class="form-group col-md flex-grow-0">
-                            <form:hidden path="quantity" value="5" /> <!-- Il faut récupérer la quantity ici -->
+                            <div class="mb-3 input-spinner">
+                                <form:input cssStyle="max-width: 70px; width: 70px" type="number" cssClass="form-control" min="1" value="1" path="quantity" />
+                            </div>
                         </div> <!-- col.// -->
                     </div> <!-- row.// -->
                     <form:button class="btn btn-outline-primary">
-                        <spring:message code="addToCart"/>
+                        <spring:message code="addToCart"/> <i class="fas fa-shopping-cart"></i>
                     </form:button>
                 </form:form>
             </article> <!-- product-info-aside .// -->

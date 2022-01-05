@@ -69,4 +69,10 @@ public class ProviderConverter {
 
         return categoryTranslation;
     }
+
+    public Discount discountEntityToDiscountModel(DiscountEntity discountEntity) {
+
+        return mapper.map(discountEntity, Discount.class);
+
+    }
 }

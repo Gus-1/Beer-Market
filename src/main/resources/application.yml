@@ -4,6 +4,6 @@ server:
     contextPath: /
 spring:
   datasource:
-    password: root
+    password: juHijero0609..
     url: jdbc:mysql://localhost:3306/childdb?user=root
     driverClassName: com.mysql.cj.jdbc.Driver

@@ -91,6 +91,7 @@
             <dl class="dlist-align">
               <dt>Total:</dt>
               <dd class="text-right  h5"><strong>${total}&euro;</strong></dd>
+              <dd>${discount}</dd>
             </dl>
             <hr>
             <p class="text-center mb-3">

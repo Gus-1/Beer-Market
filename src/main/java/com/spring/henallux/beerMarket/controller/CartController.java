@@ -2,10 +2,8 @@ package com.spring.henallux.beerMarket.controller;
 
 import com.spring.henallux.beerMarket.dataAccess.dao.BeerDataAccess;
 import com.spring.henallux.beerMarket.dataAccess.dao.CategoryDataAccess;
-import com.spring.henallux.beerMarket.model.Beer;
-import com.spring.henallux.beerMarket.model.Category;
-import com.spring.henallux.beerMarket.model.Order;
-import com.spring.henallux.beerMarket.model.OrderLine;
+import com.spring.henallux.beerMarket.dataAccess.dao.DiscountDataAccess;
+import com.spring.henallux.beerMarket.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +18,7 @@ import java.util.HashMap;
 @SessionAttributes({Constants.CURRENT_CART})
 public class CartController extends SuperController {
     private BeerDataAccess beerDataAccess;
+    private DiscountDataAccess discountDataAccess;
 
     @ModelAttribute(Constants.CURRENT_CART)
     public HashMap<Integer, OrderLine> cart() {
@@ -27,9 +26,10 @@ public class CartController extends SuperController {
     }
 
     @Autowired
-    public CartController(CategoryDataAccess categoryDataAccess, BeerDataAccess beerDataAccess){
+    public CartController(CategoryDataAccess categoryDataAccess, BeerDataAccess beerDataAccess, DiscountDataAccess discountDataAccess){
         super(categoryDataAccess);
         this.beerDataAccess = beerDataAccess;
+        this.discountDataAccess = discountDataAccess;
     }
 
     @RequestMapping(method = RequestMethod.GET)
@@ -37,7 +37,8 @@ public class CartController extends SuperController {
         //model.addAttribute("categories", super.getAllCategories());
         model.addAttribute("title", "Cart Details");
         model.addAttribute("orderLine", new OrderLine());
-
+        Discount discount = discountDataAccess.getDiscountByCode("BE10");
+        model.addAttribute("discount", discount.getReduction());
         if(!model.containsAttribute("cart")){
             model.addAttribute("cart", new HashMap<Integer, OrderLine>());
         }
