@@ -54,6 +54,8 @@ public class RegisterController extends SuperController{
                customerForm.setCredentialsNonExpired(true);
                customerForm.setAuthorities("ROLE_USER");
 
+
+
                try{
                    customerDataAccess.save(customerForm);
                } catch (Exception e){

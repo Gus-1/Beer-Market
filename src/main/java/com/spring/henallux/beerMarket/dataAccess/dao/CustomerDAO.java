@@ -23,7 +23,9 @@ public class CustomerDAO implements CustomerDataAccess {
 
     @Transactional
     public Customer save(Customer customer) {
-        return providerConverter.customerEntityToCustomerModel(customerRepository.save(providerConverter.customerModelToCustomerEntity(customer)));
+        CustomerEntity customerEntity = providerConverter.customerModelToCustomerEntity(customer);
+        customerEntity.setCustomerId(0);
+        return providerConverter.customerEntityToCustomerModel(customerRepository.save(customerEntity));
     }
 
     public Customer findCustomerByEmail(String email){

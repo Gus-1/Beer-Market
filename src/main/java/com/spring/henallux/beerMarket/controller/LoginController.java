@@ -4,13 +4,19 @@ import com.spring.henallux.beerMarket.dataAccess.dao.CategoryDataAccess;
 import com.spring.henallux.beerMarket.model.Customer;
 import com.spring.henallux.beerMarket.model.OrderLine;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import java.util.HashMap;
 
+
+@Controller
+@RequestMapping(value="/login")
+@SessionAttributes({Constants.CURRENT_CART})
 public class LoginController extends SuperController{
 
     @Autowired

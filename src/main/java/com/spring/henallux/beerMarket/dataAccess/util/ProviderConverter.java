@@ -25,7 +25,8 @@ public class ProviderConverter {
     }
 
     public CustomerEntity customerModelToCustomerEntity(Customer customer){
-        return mapper.map(customer, CustomerEntity.class);
+        CustomerEntity customerEntity = mapper.map(customer, CustomerEntity.class);
+        return customerEntity;
     }
 
     public Beer beerEntityToBeerModel(BeerEntity beerEntity){

@@ -23,14 +23,18 @@ public class Customer implements UserDetails {
     @NotEmpty
     private String firstName;
     @NotEmpty
+    private String name;
+    @NotEmpty
     @Email
-    private String emailAddress;
+    private String email;
     @NotEmpty
     @Pattern(regexp = "((\\+|00)32)?[0-9]+")
     @Size(min = 9, max = 13)
     private String phoneNumber;
     @NotEmpty
     private String address;
+    @NotEmpty
+    private Character gender;
 
     private String vatNumber;
     @NotEmpty
@@ -117,12 +121,20 @@ public class Customer implements UserDetails {
         this.firstName = firstName;
     }
 
-    public String getEmailAddress() {
-        return emailAddress;
+    public String getName() {
+        return name;
     }
 
-    public void setEmailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPhoneNumber() {
@@ -131,6 +143,14 @@ public class Customer implements UserDetails {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public Character getGender() {
+        return gender;
+    }
+
+    public void setGender(Character gender) {
+        this.gender = gender;
     }
 
     public String getAddress() {

@@ -80,11 +80,10 @@
                                         <label>Password</label>
                                         <input type="password" class="form-control" placeholder="Password">
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Sign in</button>
+                                    <button type="submit" class="btn btn-primary">Sign up</button>
                                 </form>
                                 <hr class="dropdown-divider">
-                                <a class="dropdown-item" href="#">Have account? Sign up</a>
-                                <a class="dropdown-item" href="#">Forgot password?</a>
+                                <a class="dropdown-item" href="<spring:url value="/register"/>">Don't have an account? Sign in</a>
                             </div>
                         </div>
                     </div>

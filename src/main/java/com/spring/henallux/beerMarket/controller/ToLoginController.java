@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import java.util.HashMap;
 
 @Controller
-@RequestMapping(value = "toLogin")
+@RequestMapping(value = "/toLogin")
 @SessionAttributes({Constants.CURRENT_CART})
 public class ToLoginController extends SuperController{
     @Autowired

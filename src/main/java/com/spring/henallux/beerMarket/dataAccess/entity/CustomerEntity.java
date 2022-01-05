@@ -31,7 +31,7 @@ public class CustomerEntity {
     private String address;
 
     @Column(name="vat_number")
-    private String vat;
+    private String vatNumber;
 
     @Column(name="password")
     private String password;
@@ -111,12 +111,12 @@ public class CustomerEntity {
         this.address = address;
     }
 
-    public String getVat() {
-        return vat;
+    public String getVatNumber() {
+        return vatNumber;
     }
 
-    public void setVat(String vat) {
-        this.vat = vat;
+    public void setVatNumber(String vat) {
+        this.vatNumber = vat;
     }
 
     public String getPassword() {

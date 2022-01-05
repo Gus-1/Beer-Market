@@ -69,7 +69,7 @@
                         <label>Quantity</label>
                         <div class="input-group mb-3 input-spinner">
                             <div class="input-group-prepend">
-                                <button class="btn btn-light" type="button" id="button-plus"> + </button>
+                                <button class="btn btn-light" type="button" id="button-plus" > + </button>
                             </div>
                             <input type="text" class="form-control" value="1">
                             <div class="input-group-append">
@@ -80,7 +80,17 @@
 
                 </div> <!-- row.// -->
 
-                <a href="#" class="btn  btn-outline-primary"> <span class="text">Add to cart</span> <i class="fas fa-shopping-cart"></i>  </a>
+                <!-- <a href="#" class="btn  btn-outline-primary"> <span class="text">Add to cart</span> <i class="fas fa-shopping-cart"></i>  </a> -->
+                <form:form id="addToCartForm" method="post" action="/cart/add/${beer.getBeerId()}" modelAttribute="orderLine">
+                    <div class="row">
+                        <div class="form-group col-md flex-grow-0">
+                            <form:hidden path="quantity" value="5" /> <!-- Il faut récupérer la quantity ici -->
+                        </div> <!-- col.// -->
+                    </div> <!-- row.// -->
+                    <form:button class="btn btn-outline-primary">
+                        <spring:message code="addToCart"/>
+                    </form:button>
+                </form:form>
             </article> <!-- product-info-aside .// -->
         </main> <!-- col.// -->
     </div> <!-- row.// -->
