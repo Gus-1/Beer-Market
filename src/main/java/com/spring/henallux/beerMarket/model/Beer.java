@@ -110,4 +110,19 @@ public class Beer {
     public void setCategory(Category category) {
         this.category = category;
     }
+
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof Beer && ((Beer) obj).getBeerId().equals(getBeerId()) &&
+                ((Beer) obj).getLabel().equals(getLabel()) &&
+                ((Beer) obj).getBrewery().equals(getBrewery()) &&
+                ((Beer) obj).getOriginCountry().equals(getOriginCountry()) &&
+                ((Beer) obj).getFlavour().equals(getFlavour()) &&
+                ((Beer) obj).getAbv().equals(getAbv()) &&
+                ((Beer) obj).getImagePath().equals(getImagePath()) &&
+                ((Beer) obj).getDescription().equals(getDescription()) &&
+                ((Beer) obj).getPrice().equals(getPrice()) &&
+                ((Beer) obj).getCategory().equals(getCategory());
+    }
 }

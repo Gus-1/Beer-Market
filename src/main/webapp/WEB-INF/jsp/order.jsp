@@ -2,6 +2,9 @@
          contentType="text/html;charset=UTF-8"%>
 <%@ include file="include/importTags.jsp"%>
 
+<c:set scope="page" var="total" value="${Math.round(cart.values().stream().map(value -> value.getQuantity() * value.getBeer().getPrice()).reduce(0, (a, b) -> a + b) * 100.) / 100.}" />
+
+
 <section class="section-content padding-y bg">
     <div class="container">
         <div class="row">
@@ -14,10 +17,10 @@
                             <c:forEach var="orderLine" items="${cart.values()}">
                                 <div class="col-md-6">
                                     <figure class="itemside  mb-4">
-                                        <div class="aside"><img src="../../images/${orderLine.getProduct().getImagePath()}" class="border img-sm"></div>
+                                        <div class="aside"><img src="${orderLine.getBeer().getImagePath()}" class="border img-sm"></div>
                                         <figcaption class="info">
-                                            <p>${orderLine.getProduct().getLabel()}</p>
-                                            <span class="text-muted">${orderLine.getQuantity()}x = ${orderLine.getProduct().getPrice() * orderLine.getQuantity()}&euro; </span>
+                                            <p>${orderLine.getBeer().getLabel()}</p>
+                                            <span class="text-muted">${orderLine.getQuantity()}x = ${orderLine.getBeer().getPrice() * orderLine.getQuantity()}&euro; </span>
                                         </figcaption>
                                     </figure>
                                 </div> <!-- col.// -->
@@ -37,22 +40,22 @@
                         <hr>
                         <dl class="dlist-align">
                             <dt>Total:</dt>
-                            <dd class="h5">${Math.round(cart.values().stream().map(value -> value.getQuantity() * value.getProduct().getPrice()).reduce(0, (a, b) -> a + b) * 100.) / 100.}&euro;</dd>
+                            <dd class="h5">${total - (total/100)*appliedDiscount.getReduction()}&euro;</dd>
+
                         </dl>
                         <hr>
                         <h6><spring:message code="notRedirected" /></h6>
                         <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
-                            <input hidden name="business" value="" />
-                            <input hidden name="password" value="" />
-                            <input hidden name="cert_id" value="" />
+                            <input hidden name="business" value="beer-market@gmail.com"/>
+                            <input hidden name="cert_id" value="AbxmdklB2DANt8cpTXz8sY-UfFudE4vjb7H5xysBZ2ULet7DWeRlhsBGgcTzNz5fdAPcDc3zkgvS1-ys" />
                             <input hidden name="cmd" value="_xclick" />
-                            <input hidden name="amount" value="${Math.round(cart.values().stream().map(value -> value.getQuantity() * value.getProduct().getPrice()).reduce(0, (a, b) -> a + b) * 100.) / 100.}" />
-                            <input hidden name="item_name" value="<spring:message code='insideOutOrder' />" />
+                            <input hidden name="amount" value="${total - (total/100)*appliedDiscount.getReduction()}" />
+                            <input hidden name="item_name" value="<spring:message code='beerMarketOrder' />" />
                             <input hidden name="lc" value="fr_BE" />
                             <input hidden name="currency_code" value="EUR" />
                             <input hidden name="return" value="http://localhost:8082/order/success" />
                             <input hidden name="cancel_return" value="http://localhost:8082/cart" />
-                            <input id="button" type="image" style="margin: auto" src="<spring:url value='/vendor/images/paypal_logo.png' />" />
+                            <input id="button" type="image" style="margin: auto" src="<spring:url value='/images/paypal_logo.png' />" />
                         </form>
 
                     </div> <!-- card-body.// -->

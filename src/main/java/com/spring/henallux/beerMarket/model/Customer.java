@@ -20,8 +20,10 @@ public class Customer implements UserDetails {
 
     private Integer customerId;
     @NotEmpty
+    @Size(min=2)
     private String firstName;
     @NotEmpty
+    @Size(min=2)
     private String name;
     @NotEmpty
     @Email
@@ -31,6 +33,7 @@ public class Customer implements UserDetails {
     @Size(min = 9, max = 13)
     private String phoneNumber;
     @NotEmpty
+    @Size(min=10)
     private String address;
     @Nullable
     private Character gender;

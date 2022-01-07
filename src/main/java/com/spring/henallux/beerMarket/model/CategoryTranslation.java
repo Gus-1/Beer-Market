@@ -8,6 +8,12 @@ public class CategoryTranslation {
 
     public CategoryTranslation(){}
 
+    public CategoryTranslation(Integer categoryId, Integer languageId, String label) {
+        this.categoryId = categoryId;
+        this.languageId = languageId;
+        this.label = label;
+    }
+
     public Integer getCategoryId() {
         return categoryId;
     }

@@ -19,13 +19,11 @@ import java.util.stream.Collectors;
 @Transactional
 public class CategoryDAO implements CategoryDataAccess{
 
-    private CategoryRepository categoryRepository;
     private ProviderConverter providerConverter;
     private CategoryTranslationRepository categoryTranslationRepository;
 
     @Autowired
-    public CategoryDAO(CategoryRepository categoryRepository, ProviderConverter providerConverter, CategoryTranslationRepository categoryTranslationRepository){
-        this.categoryRepository = categoryRepository;
+    public CategoryDAO(ProviderConverter providerConverter, CategoryTranslationRepository categoryTranslationRepository){
         this.providerConverter = providerConverter;
         this.categoryTranslationRepository = categoryTranslationRepository;
     }

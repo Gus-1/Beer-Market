@@ -4,6 +4,7 @@ import com.spring.henallux.beerMarket.dataAccess.dao.CategoryDataAccess;
 import com.spring.henallux.beerMarket.dataAccess.dao.OrderDataAccess;
 import com.spring.henallux.beerMarket.dataAccess.entity.OrderEntity;
 import com.spring.henallux.beerMarket.model.Customer;
+import com.spring.henallux.beerMarket.model.Discount;
 import com.spring.henallux.beerMarket.model.Order;
 import com.spring.henallux.beerMarket.model.OrderLine;
 import org.springframework.stereotype.Controller;
@@ -30,7 +31,8 @@ public class OrderController extends SuperController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public String order (Model model, @ModelAttribute(value = Constants.CURRENT_CART)HashMap <Integer, OrderLine> cart,
+    public String order (Model model,
+                         @ModelAttribute(value = Constants.CURRENT_CART)HashMap <Integer, OrderLine> cart,
                          Authentication authentication){
         model.addAttribute("categories", super.getAllCategories());
 

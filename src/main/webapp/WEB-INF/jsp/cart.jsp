@@ -73,7 +73,7 @@
         </div> <!-- card.// -->
 
         <div class="price-wrap">
-          <form:form method="GET" modelAttribute="code" action="/cart">
+          <form:form method="POST" modelAttribute="currentDiscount" action="/cart/discount">
             <div class="form-group">
               <form:label path="code"><spring:message code="promoCode"/></form:label>
               <form:input cssClass="form-control" path="code" />
@@ -100,11 +100,11 @@
             </dl>
             <dl class="dlist-align">
               <dt> <spring:message code="discount"/>:</dt>
-              <dd class="text-right">${discount}&euro;</dd>
+              <dd class="text-right"> ${appliedDiscount.getReduction()} %</dd>
             </dl>
             <dl class="dlist-align">
               <dt>Total:</dt>
-              <dd class="text-right  h5"><strong>${total - discount}&euro;</strong></dd>
+              <dd class="text-right  h5"><strong>${total - (total/100)*appliedDiscount.getReduction()}&euro;</strong></dd>
             </dl>
             <hr>
             <p class="text-center mb-3">

@@ -40,6 +40,19 @@ public class BeerEntity {
     public BeerEntity() {
     }
 
+    public BeerEntity(Integer beerId, String label, String description, Double abv, String flavour, String brewery, String originCountry, String imagePath, Double price, CategoryEntity categoryEntity) {
+        this.beerId = beerId;
+        this.label = label;
+        this.description = description;
+        this.abv = abv;
+        this.flavour = flavour;
+        this.brewery = brewery;
+        this.originCountry = originCountry;
+        this.imagePath = imagePath;
+        this.price = price;
+        this.categoryEntity = categoryEntity;
+    }
+
     public Integer getBeerId() {
         return beerId;
     }

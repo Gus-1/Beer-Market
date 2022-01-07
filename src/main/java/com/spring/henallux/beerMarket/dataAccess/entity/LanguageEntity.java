@@ -17,6 +17,11 @@ public class LanguageEntity {
 
     public LanguageEntity(){}
 
+    public LanguageEntity(Integer language_id, String languageName) {
+        this.language_id = language_id;
+        this.languageName = languageName;
+    }
+
     public Integer getLanguage_id() {
         return language_id;
     }

@@ -15,6 +15,11 @@ public class TranslationCategoryEntity {
 
     public TranslationCategoryEntity(){}
 
+    public TranslationCategoryEntity(TranslationCategoryId translationCategoryId, String label) {
+        this.translationCategoryId = translationCategoryId;
+        this.label = label;
+    }
+
     public TranslationCategoryId getTranslationCategoryId() {
         return translationCategoryId;
     }
