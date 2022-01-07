@@ -1,5 +1,6 @@
 package com.spring.henallux.beerMarket.model;
 
+import org.springframework.lang.Nullable;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,9 +18,7 @@ import static org.springframework.util.StringUtils.isEmpty;
 
 public class Customer implements UserDetails {
 
-    private Integer id;
-    @NotEmpty
-    private String username;
+    private Integer customerId;
     @NotEmpty
     private String firstName;
     @NotEmpty
@@ -33,9 +32,9 @@ public class Customer implements UserDetails {
     private String phoneNumber;
     @NotEmpty
     private String address;
-    @NotEmpty
+    @Nullable
     private Character gender;
-
+    @Nullable
     private String vatNumber;
     @NotEmpty
     private String password;
@@ -75,10 +74,9 @@ public class Customer implements UserDetails {
         return password;
     }
 
-    //todo Replaced by email?
     @Override
     public String getUsername() {
-        return null;
+        return email;
     }
 
     @Override
@@ -101,12 +99,12 @@ public class Customer implements UserDetails {
         return enabled;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getCustomerId() {
+        return customerId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setCustomerId(Integer customerId) {
+        this.customerId = customerId;
     }
 
     public void setUsername(String username) {

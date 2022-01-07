@@ -1,6 +1,7 @@
 package com.spring.henallux.beerMarket.controller;
 
 import com.spring.henallux.beerMarket.dataAccess.dao.CategoryDataAccess;
+import com.spring.henallux.beerMarket.model.Customer;
 import com.spring.henallux.beerMarket.model.OrderLine;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +25,8 @@ public class HomeController extends SuperController{
 
     @RequestMapping(method = RequestMethod.GET)
     public String home(Model model){
+
+        model.addAttribute("customer", new Customer());
 
         model.addAttribute("title" , "Accueil");
         model.addAttribute("categories", super.getAllCategories());

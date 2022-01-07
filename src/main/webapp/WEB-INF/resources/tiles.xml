@@ -13,6 +13,9 @@
         <put-attribute name="main-content" value="" />
     </definition>
 
+    <!-- "static:" renders the page as-is, without the template -->
+    <definition name="static:**" template="/WEB-INF/jsp/{1}.jsp" />
+
     <!-- "ajax:" renders the page as-is, without the template -->
     <definition name="ajax:**" template="/WEB-INF/jsp/ajax/{1}.jsp" />
 

@@ -10,14 +10,6 @@ public class TranslationCategoryEntity {
     @EmbeddedId
     private TranslationCategoryId translationCategoryId;
 
-    /*@JoinColumn(name="category_id", referencedColumnName = "category_id")
-    @ManyToOne
-    private CategoryEntity categoryId;
-
-    @JoinColumn(name="language_id", referencedColumnName = "language_id")
-    @ManyToOne
-    private LanguageEntity languageEntity;*/
-
     @Column(name="label")
     private String label;
 

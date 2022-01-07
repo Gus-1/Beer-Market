@@ -32,10 +32,8 @@ public class CategoryDAO implements CategoryDataAccess{
 
 
     public ArrayList<CategoryTranslation> getAllCategories() {
-        return categoryTranslationRepository.findAllByTranslationCategoryId_LanguageEntity_LanguageName("french"/*LocaleContextHolder.getLocale().getLanguage()*/)
+        return categoryTranslationRepository.findAllByTranslationCategoryId_LanguageEntity_LanguageName(LocaleContextHolder.getLocale().getLanguage())
                 .stream().map(translationCategoryEntity -> providerConverter.translationCategoryEntityToCategoryTranslation(translationCategoryEntity))
                 .collect(Collectors.toCollection(ArrayList :: new));
-
-        //return new ArrayList<TranslationCategoryEntity>(categoryTranslationRepository.findAllByTranslationCategoryId_LanguageEntity_LanguageName(language));
     }
 }

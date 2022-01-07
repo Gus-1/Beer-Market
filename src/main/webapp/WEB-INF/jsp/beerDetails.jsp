@@ -1,11 +1,6 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Evan Colle
-  Date: 03-01-22
-  Time: 14:27
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%@ page pageEncoding ="UTF-8"
+    contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="include/importTags.jsp"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html>
@@ -22,8 +17,6 @@
     <link href="<spring:url value='/vendor/css/responsive.css' />" rel="stylesheet" media="only screen and (max-width: 1200px)" />
     <!-- custom javascript -->
     <script src="<spring:url value='/vendor/js/script.js' />" type="text/javascript"></script>
-
-    <title>${title}</title>
 
 </head>
 <body>
@@ -50,16 +43,16 @@
 
                 <p> ${beer.getDescription()} </p>
                 <dl class="row">
-                    <dt class="col-sm-3">Brasserie : </dt>
+                    <dt class="col-sm-3"> <spring:message code="brewery"/> : </dt>
                     <dd class="col-sm-9">${beer.getBrewery()}</dd>
 
-                    <dt class="col-sm-3">Couleur :</dt>
-                    <dd class="col-sm-9">Blond</dd>
+                    <dt class="col-sm-3"> <spring:message code="color"/> :</dt>
+                    <dd class="col-sm-9">${color}</dd>
 
-                    <dt class="col-sm-3">Origine :</dt>
+                    <dt class="col-sm-3"> <spring:message code="origin"/> :</dt>
                     <dd class="col-sm-9">${beer.getOriginCountry()}</dd>
 
-                    <dt class="col-sm-3">Goût :</dt>
+                    <dt class="col-sm-3"> <spring:message code="taste"/> :</dt>
                     <dd class="col-sm-9">${beer.getFlavour()}</dd>
                 </dl>
 

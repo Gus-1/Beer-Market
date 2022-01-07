@@ -33,12 +33,27 @@ public class CartController extends SuperController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public String getCart(Model model, @ModelAttribute(value = Constants.CURRENT_CART) HashMap<Integer, OrderLine> cart){
-        //model.addAttribute("categories", super.getAllCategories());
+    public String getCart(Model model,
+                          @ModelAttribute(value = Constants.CURRENT_CART) HashMap<Integer, OrderLine> cart,
+                          @ModelAttribute(value="code") Discount discount){
+        if(!model.containsAttribute("code")){
+            model.addAttribute("code", new Discount());
+        }
+        Discount checkDiscount = discountDataAccess.getDiscountByCode(discount.getCode());
+        if (checkDiscount != null){
+            //Check cart
+            model.addAttribute("discount", checkDiscount.getReduction());
+        }else {
+            model.addAttribute("discount", 0);
+        }
+
+        model.addAttribute("customer", new Customer());
+
+        model.addAttribute("categories", getAllCategories());
         model.addAttribute("title", "Cart Details");
         model.addAttribute("orderLine", new OrderLine());
-        Discount discount = discountDataAccess.getDiscountByCode("BE10");
-        model.addAttribute("discount", discount.getReduction());
+
+
         if(!model.containsAttribute("cart")){
             model.addAttribute("cart", new HashMap<Integer, OrderLine>());
         }
@@ -78,6 +93,18 @@ public class CartController extends SuperController {
             return "redirect:/cart";
         }
         return "integrated:/details/" + id;
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/applyDiscount")
+    public String applyDiscount(Model model, @ModelAttribute(value = Constants.CURRENT_CART)HashMap<Integer, OrderLine> cart,
+                                @Valid @ModelAttribute(value = "code") Discount discountCode,
+                                final BindingResult errors){
+        Discount discount = discountDataAccess.getDiscountByCode(discountCode.getCode());
+        if (discount != null)
+            model.addAttribute("discount", discount.getReduction());
+            model.addAttribute("code", discount);
+            //Apply the discount
+        return "redirect:/cart";
     }
 }
 

@@ -6,6 +6,5 @@ import com.spring.henallux.beerMarket.model.CategoryTranslation;
 import java.util.ArrayList;
 
 public interface CategoryDataAccess {
-    //ArrayList<CategoryTranslation> getAllCategories();
     ArrayList<CategoryTranslation> getAllCategories();
 }

@@ -9,7 +9,6 @@ import java.util.List;
 @Entity
 @Table(name="orders")
 public class OrderEntity {
-
     @Id
     @Column(name="order_id")
     private Integer orderId;

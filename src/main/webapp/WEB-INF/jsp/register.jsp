@@ -75,7 +75,7 @@
 
                     <div class="form-group">
                         <form:label path="vatNumber">
-                            <spring:message code="vatNumber"/>
+                            <spring:message code="vat"/>
                         </form:label>
                         <form:input path="vatNumber" cssClass="form-control" />
                     </div> <!-- form-group end.// -->
@@ -118,7 +118,6 @@
 
         </article><!-- card-body.// -->
     </div> <!-- card .// -->
-    <p class="text-center mt-4"><spring:message code="alreadyAccount"/> <a href="<spring:url value='/goToLogin'/>"><spring:message code="login"/></a></p>
     <br><br>
     <!-- ============================ COMPONENT REGISTER  END.// ================================= -->
 </section>

@@ -25,7 +25,8 @@ public class DiscountDAO implements DiscountDataAccess{
 
     public Discount getDiscountByCode(String code){
         DiscountEntity discountEntity = discountRepository.findDiscountEntityByCode(code);
-        return providerConverter.discountEntityToDiscountModel(discountEntity);
-
+        if(discountEntity != null)
+            return providerConverter.discountEntityToDiscountModel(discountEntity);
+        return null;
     }
 }

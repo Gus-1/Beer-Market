@@ -4,20 +4,11 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name="orderLine")
+@Table(name="orderline")
 public class OrderLineEntity {
 
-    //todo : What todo? :) How to map ?
-    @Id
+    @EmbeddedId
     private OrderLineId orderLineId;
-
-    @JoinColumn(name="order_id", referencedColumnName = "order_id")
-    @ManyToOne
-    private OrderEntity orderId;
-
-    @JoinColumn(name="beer_id", referencedColumnName = "beer_id")
-    @ManyToOne
-    private BeerEntity beerId;
 
     @Column(name="order_line_number")
     private Integer orderLineNumber;
@@ -32,8 +23,6 @@ public class OrderLineEntity {
 
     public OrderLineEntity(OrderLineId orderLineId, OrderEntity orderId, BeerEntity beerId, Integer orderLineNumber, Integer quantity, Double price) {
         this.orderLineId = orderLineId;
-        this.orderId = orderId;
-        this.beerId = beerId;
         this.orderLineNumber = orderLineNumber;
         this.quantity = quantity;
         this.price = price;
@@ -44,22 +33,6 @@ public class OrderLineEntity {
     }
     public void setOrderLineId(OrderLineId orderLineId) {
         this.orderLineId = orderLineId;
-    }
-
-    public OrderEntity getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(OrderEntity orderId) {
-        this.orderId = orderId;
-    }
-
-    public BeerEntity getBeerId() {
-        return beerId;
-    }
-
-    public void setBeerId(BeerEntity beerId) {
-        this.beerId = beerId;
     }
 
     public Integer getOrderLineNumber() {

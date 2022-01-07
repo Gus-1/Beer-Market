@@ -6,6 +6,7 @@ import com.spring.henallux.beerMarket.dataAccess.dao.CategoryDataAccess;
 import com.spring.henallux.beerMarket.dataAccess.repository.BeerRepository;
 import com.spring.henallux.beerMarket.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -37,9 +38,9 @@ public class BeersController extends SuperController{
             categoryChosen =  categories.stream().filter(category -> category.getCategoryId().equals(categoryId))
                     .map(CategoryTranslation::getLabel).collect(Collectors.toCollection(ArrayList :: new)).get(0);
         } else {
-            //todo : Faire une traduction pour all beers
-            categoryChosen = "Toutes les bières";
+            categoryChosen = LocaleContextHolder.getLocale().getLanguage().equals("fr")? "Toutes les bières": "All Beers";
         }
+
 
         model.addAttribute("categories", categories);
         model.addAttribute("categoryChosen", categoryChosen);

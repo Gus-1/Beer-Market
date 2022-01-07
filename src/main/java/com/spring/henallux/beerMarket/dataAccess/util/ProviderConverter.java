@@ -2,6 +2,7 @@ package com.spring.henallux.beerMarket.dataAccess.util;
 
 import com.spring.henallux.beerMarket.dataAccess.entity.*;
 import com.spring.henallux.beerMarket.model.*;
+import org.aspectj.weaver.ast.Or;
 import org.dozer.DozerBeanMapper;
 import org.springframework.stereotype.Component;
 
@@ -15,7 +16,7 @@ public class ProviderConverter {
 
     public Customer customerEntityToCustomerModel(CustomerEntity customerEntity){
         Customer customer = mapper.map(customerEntity, Customer.class);
-
+        customer.setUsername(customerEntity.getEmail());
         customer.setAccountNonExpired(customerEntity.getAccountNonExpired());
         customer.setAccountNonLocked(customerEntity.getAccountNonLocked());
         customer.setCredentialsNonExpired(customerEntity.getCredentialsNonExpired());
@@ -33,6 +34,10 @@ public class ProviderConverter {
         return mapper.map(beerEntity, Beer.class);
     }
 
+    public BeerEntity beerModelToBeerEntity(Beer beer){
+        return mapper.map(beer, BeerEntity.class);
+    }
+
     public Category categoryEntityToCategoryModel(CategoryEntity categoryEntity){
         return mapper.map(categoryEntity, Category.class);
     }
@@ -45,8 +50,8 @@ public class ProviderConverter {
                     OrderLineEntity orderLineEntity = new OrderLineEntity();
                     BeerEntity beerEntity = mapper.map(orderLine.getBeer(), BeerEntity.class);
 
-                    orderLineEntity.setOrderId(orderEntity);
-                    orderLineEntity.setBeerId(beerEntity);
+                    orderLineEntity.setOrderLineId(new OrderLineId(orderEntity, beerEntity));
+
                     orderLineEntity.setPrice(beerEntity.getPrice());
                     orderLineEntity.setQuantity(orderLine.getQuantity());
 

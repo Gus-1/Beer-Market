@@ -9,6 +9,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface CategoryTranslationRepository extends JpaRepository<TranslationCategoryEntity, TranslationCategoryId> {
-    //List <TranslationCategoryEntity> findAllByLanguageEntity_LanguageName(String languageName);
     List <TranslationCategoryEntity> findAllByTranslationCategoryId_LanguageEntity_LanguageName(String languageName);
 }

@@ -23,7 +23,6 @@
                     <div class="form-inline">
 
                     </div>
-                    <title>${title}</title>
 
                 </header><!-- sect-heading -->
 

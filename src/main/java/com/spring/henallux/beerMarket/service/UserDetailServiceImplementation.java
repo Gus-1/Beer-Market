@@ -1,17 +1,20 @@
 package com.spring.henallux.beerMarket.service;
 
+import com.spring.henallux.beerMarket.dataAccess.dao.CustomerDAO;
 import com.spring.henallux.beerMarket.dataAccess.dao.CustomerDataAccess;
 import com.spring.henallux.beerMarket.model.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
-public class CustomerDetailServiceImplementation implements UserDetailsService {
+@Service
+public class UserDetailServiceImplementation implements UserDetailsService {
     private CustomerDataAccess customerDataAccess;
 
     @Autowired
-    public CustomerDetailServiceImplementation(CustomerDataAccess customerDataAccess){
+    public UserDetailServiceImplementation(CustomerDAO customerDataAccess){
         this.customerDataAccess = customerDataAccess;
     }
 

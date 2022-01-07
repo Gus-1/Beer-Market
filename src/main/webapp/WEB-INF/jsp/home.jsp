@@ -1,12 +1,15 @@
-<%@ page contentType="text/html;charset=UTF-8" %>
+
+<%@ page pageEncoding ="UTF-8"
+         contentType="text/html;charset=UTF-8" language="java" %>
+<%@ include file="include/importTags.jsp"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 <!-- ========================= SECTION CONTENT ========================= -->
 <section class="section-content padding-y">
   <div class="container">
 
     <header class="section-heading">
-      <title>${title}</title>
-      <h2 class="section-title">First section name</h2>
+      <h2 class="section-title"> <spring:message code="firstSection"/></h2>
     </header><!-- sect-heading -->
 
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -25,8 +28,8 @@
   <div class="container">
 
     <header class="section-heading">
-      <h2 class="section-title">Second section name</h2>
-      <p class="lead">Life is easy why make it hard? Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+      <h2 class="section-title"> <spring:message code="secondSection"/></h2>
+      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
     </header><!-- sect-heading -->
 
     <div class="row">

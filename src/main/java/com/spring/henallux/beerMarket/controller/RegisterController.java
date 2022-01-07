@@ -32,6 +32,8 @@ public class RegisterController extends SuperController{
 
     @RequestMapping (method = RequestMethod.GET)
     public String register (Model model){
+        model.addAttribute("customer", new Customer());
+
         model.addAttribute("categories", super.getAllCategories());
         model.addAttribute("title", "Register");
         model.addAttribute("customer", new Customer());
@@ -47,6 +49,8 @@ public class RegisterController extends SuperController{
            if(customerForm.getPassword().equals(customerForm.getConfirmationPassword())) {
                BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
                customerForm.setPassword(bCryptPasswordEncoder.encode(customerForm.getPassword()));
+
+               customerForm.setVatNumber(customerForm.getVatNumber().equals("")? null : customerForm.getVatNumber());
 
                customerForm.setAccountNonLocked(true);
                customerForm.setAccountNonExpired(true);

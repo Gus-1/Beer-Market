@@ -1,4 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page pageEncoding ="UTF-8"
+         contentType="text/html;charset=UTF-8" %>
 <%@ include file="include/importTags.jsp"%>
 
 <c:set scope="page" var="total" value="${Math.round(cart.values().stream().map(value -> value.getQuantity() * value.getBeer().getPrice()).reduce(0, (a, b) -> a + b) * 100.) / 100.}" />
@@ -6,7 +7,7 @@
 <!-- ========================= SECTION PAGETOP ========================= -->
 <section class="section-pagetop bg">
   <div class="container">
-    <h2 class="title-page">Shopping cart</h2>
+    <h2 class="title-page"> <spring:message code="shoppingCart"/></h2>
   </div> <!-- container //  -->
 </section>
 <!-- ========================= SECTION INTRO END// ========================= -->
@@ -21,7 +22,6 @@
 
           <table class="table table-borderless table-shopping-cart">
             <thead class="text-muted">
-            <title>${title}</title>
             <tr class="small text-uppercase">
               <th scope="col"><spring:message code="product" /></th>
               <th scope="col" style="width: 120px"><spring:message code="quantity" /></th>
@@ -68,9 +68,23 @@
 
           <div class="card-body border-top">
             <button id="orderButton" class="btn btn-primary float-md-right"> <spring:message code='buttonMakePurchase' /> <i class="fa fa-chevron-right"></i> </button>
-            <a href="<spring:url value='/beers/1' />" class="btn btn-light"> <i class="fa fa-chevron-left"></i> <spring:message code='buttonContinueShopping' /> </a>
+            <a href="<spring:url value='/beers/0' />" class="btn btn-light"> <i class="fa fa-chevron-left"></i> <spring:message code='buttonContinueShopping' /> </a>
           </div>
         </div> <!-- card.// -->
+
+        <div class="price-wrap">
+          <form:form method="GET" modelAttribute="code" action="/cart">
+            <div class="form-group">
+              <form:label path="code"><spring:message code="promoCode"/></form:label>
+              <form:input cssClass="form-control" path="code" />
+              <form:errors path="code" />
+            </div>
+
+            <div class = "form-group">
+              <form:button type="submit" class="btn btn-primary btn-block"> <spring:message code="send"/></form:button>
+            </div>
+          </form:form>
+        </div>
 
         <div class="alert alert-success mt-3">
           <p class="icontext"><i class="icon text-success fa fa-truck"></i><spring:message code="delivery"/></p>
@@ -81,23 +95,21 @@
         <div class="card">
           <div class="card-body">
             <dl class="dlist-align">
-              <dt>Total price:</dt>
+              <dt> <spring:message code="totalPrice"/>:</dt>
               <dd class="text-right">${total}&euro;</dd>
             </dl>
             <dl class="dlist-align">
-              <dt>Discount:</dt>
-              <dd class="text-right">0&euro;</dd>
+              <dt> <spring:message code="discount"/>:</dt>
+              <dd class="text-right">${discount}&euro;</dd>
             </dl>
             <dl class="dlist-align">
               <dt>Total:</dt>
-              <dd class="text-right  h5"><strong>${total}&euro;</strong></dd>
-              <dd>${discount}</dd>
+              <dd class="text-right  h5"><strong>${total - discount}&euro;</strong></dd>
             </dl>
             <hr>
             <p class="text-center mb-3">
               <img src="<spring:url value='/images/paypal_logo.png' />" height="56">
             </p>
-
           </div> <!-- card-body.// -->
         </div>  <!-- card .// -->
       </aside> <!-- col.// -->
@@ -113,7 +125,7 @@
 
     button.onclick = () => {
       if (window.confirm(`<spring:message code="confirmOrder" />`)) {
-        document.location = "<spring:url value='/order' />";
+        document.location = "<spring:url value='/order'/>";
       }
     }
   }
