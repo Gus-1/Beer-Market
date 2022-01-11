@@ -44,5 +44,4 @@ public class DiscountService {
         }
         return isEligible;
     }
-
 }

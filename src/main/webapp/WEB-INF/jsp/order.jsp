@@ -40,7 +40,7 @@
                         <hr>
                         <dl class="dlist-align">
                             <dt>Total:</dt>
-                            <dd class="h5">${total - (total/100)*appliedDiscount.getReduction()}&euro;</dd>
+                            <dd class="h5">${Math.round(  (total - (total/100)*appliedDiscount.getReduction()) * 100.  ) / 100.}&euro;</dd>  <!-- Need to check if .2f// -->
 
                         </dl>
                         <hr>
@@ -49,7 +49,7 @@
                             <input hidden name="business" value="beer-market@gmail.com"/>
                             <input hidden name="cert_id" value="AbxmdklB2DANt8cpTXz8sY-UfFudE4vjb7H5xysBZ2ULet7DWeRlhsBGgcTzNz5fdAPcDc3zkgvS1-ys" />
                             <input hidden name="cmd" value="_xclick" />
-                            <input hidden name="amount" value="${total - (total/100)*appliedDiscount.getReduction()}" />
+                            <input hidden name="amount" value="${Math.round(  (total - (total/100)*appliedDiscount.getReduction()) * 100.  ) / 100.}" /> <!-- Need to check if .2f// -->
                             <input hidden name="item_name" value="<spring:message code='beerMarketOrder' />" />
                             <input hidden name="lc" value="fr_BE" />
                             <input hidden name="currency_code" value="EUR" />

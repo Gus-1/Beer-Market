@@ -3,10 +3,6 @@
          contentType="text/html; charset=UTF-8"%>
 <%@ include file="include/importTags.jsp"%>
 
-<script>
-    $('.datepicker').datepicker();
-</script>
-
 <!-- ========================= SECTION CONTENT ========================= -->
 <section class="section-content padding-y">
 
@@ -99,7 +95,6 @@
                                         <spring:message code='other'/>
                                 </span>
                         </label>
-                        <form:errors path="gender"/>
                     </div> <!-- form-group end.// -->
 
                     <div class="form-group">
@@ -107,6 +102,7 @@
                             <spring:message code="address"/>
                         </form:label>
                         <form:input path="address" cssClass="form-control" />
+                        <form:errors path="address"/>
                     </div> <!-- form-group end.// -->
 
                     <div class="form-group">

@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="beerMarket" target="16" />
+      <module name="beerMarket" target="15" />
       <module name="FirstSpringProject" target="16" />
     </bytecodeTargetLevel>
   </component>

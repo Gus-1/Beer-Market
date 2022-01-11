@@ -31,10 +31,10 @@ public class CartController extends SuperController {
     }
 
     @Autowired
-    public CartController(CategoryDataAccess categoryDataAccess, BeerDataAccess beerDataAccess, DiscountDataAccess discountDataAccess){
+    public CartController(CategoryDataAccess categoryDataAccess, BeerDataAccess beerDataAccess, DiscountService discountService){
         super(categoryDataAccess);
         this.beerDataAccess = beerDataAccess;
-        this.discountDataAccess = discountDataAccess;
+        this.discountService = discountService;
     }
 
     @RequestMapping(method = RequestMethod.GET)
@@ -52,8 +52,8 @@ public class CartController extends SuperController {
         if(!model.containsAttribute("cart")){
             model.addAttribute("cart", new HashMap<Integer, OrderLine>());
         }
-        if(!model.containsAttribute("currentDiscount")){
-            model.addAttribute("currentDiscount", new Discount());
+        if(!model.containsAttribute("discount")){
+            model.addAttribute("discount", new Discount());
         }
 
         return "integrated:cart";
@@ -67,7 +67,6 @@ public class CartController extends SuperController {
                             final BindingResult errors){
 
         currentDiscount.setReduction(null);
-        currentDiscount.setDiscountId(null);
         currentDiscount.setCode(null);
 
         if(!errors.hasErrors()){
@@ -92,7 +91,6 @@ public class CartController extends SuperController {
                              final BindingResult errors){
 
         currentDiscount.setReduction(null);
-        currentDiscount.setDiscountId(null);
         currentDiscount.setCode(null);
 
         if(!errors.hasErrors()){
@@ -112,25 +110,31 @@ public class CartController extends SuperController {
                               @Valid @ModelAttribute(value = "currentDiscount") Discount discount,
                               final BindingResult errors){
 
+        model.addAttribute("orderLine", new OrderLine());
+
         if(!errors.hasErrors()){
-            Discount checkDiscount = discountDataAccess.getDiscountByCode(discount.getCode());
-            if (checkDiscount != null){
-                if(DiscountService.checkEligibility(cart,discount.getCode())){
-                    currentDiscount.setReduction(checkDiscount.getReduction());
-                    currentDiscount.setCode(checkDiscount.getCode());
-                }
-                else{
-                    currentDiscount.setReduction(null);
-                    currentDiscount.setDiscountId(null);
-                    currentDiscount.setCode(null);
-                }
-            }else {
-                currentDiscount.setReduction(null);
+            try {
+                Discount discountFound = discountService.loadDiscountByCode(cart, discount.getCode());
+
+                currentDiscount.setDiscountId(discountFound.getDiscountId());
+                currentDiscount.setReduction(discountFound.getReduction());
+                currentDiscount.setCode(discountFound.getCode());
+            } catch (DiscountException exception) {
+                errors.rejectValue(
+                        "code",
+                        exception.getMessage().equals("Discount not found")
+                                ? "discount.notfound"
+                                : "discount.notEligible"
+                );
+
                 currentDiscount.setDiscountId(null);
+                currentDiscount.setReduction(null);
                 currentDiscount.setCode(null);
+
+                return "integrated:/cart";
             }
         }
-        return "redirect:/cart";
+        return "integrated:/cart";
     }
 }
 

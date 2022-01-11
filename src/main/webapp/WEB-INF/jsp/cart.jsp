@@ -53,7 +53,7 @@
                   </td>
                   <td>
                     <div class="price-wrap">
-                      <var class="price">${orderLine.getQuantity() * orderLine.getBeer().getPrice()}&euro;</var>
+                      <var class="price">${Math.round((orderLine.getQuantity() * orderLine.getBeer().getPrice()) * 100.) / 100.}&euro;</var>
                       <small class="text-muted"> ${orderLine.getBeer().getPrice()}&euro; <spring:message code="each" /></small>
                     </div> <!-- price-wrap .// -->
                   </td>
@@ -73,7 +73,7 @@
         </div> <!-- card.// -->
 
         <div class="price-wrap">
-          <form:form method="POST" modelAttribute="currentDiscount" action="/cart/discount">
+          <form:form method="POST" modelAttribute="discount" action="/cart/discount">
             <div class="form-group">
               <form:label path="code"><spring:message code="promoCode"/></form:label>
               <form:input cssClass="form-control" path="code" />
@@ -98,13 +98,15 @@
               <dt> <spring:message code="totalPrice"/>:</dt>
               <dd class="text-right">${total}&euro;</dd>
             </dl>
-            <dl class="dlist-align">
-              <dt> <spring:message code="discount"/>:</dt>
-              <dd class="text-right"> ${appliedDiscount.getReduction()} %</dd>
-            </dl>
+            <c:if test="${appliedDiscount.getReduction() != null}">
+              <dl class="dlist-align">
+                <dt> <spring:message code="discount"/>:</dt>
+                <dd class="text-right"> ${appliedDiscount.getReduction()} %</dd>
+              </dl>
+            </c:if>
             <dl class="dlist-align">
               <dt>Total:</dt>
-              <dd class="text-right  h5"><strong>${total - (total/100)*appliedDiscount.getReduction()}&euro;</strong></dd>
+              <dd class="text-right  h5"><strong>${Math.round( (total - (total/100) *appliedDiscount.getReduction()) * 100.) / 100.}&euro;</strong></dd>
             </dl>
             <hr>
             <p class="text-center mb-3">

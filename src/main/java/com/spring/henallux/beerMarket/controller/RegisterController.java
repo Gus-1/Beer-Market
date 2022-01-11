@@ -30,7 +30,6 @@ public class RegisterController extends SuperController{
 
     @RequestMapping (method = RequestMethod.GET)
     public String register (Model model){
-        model.addAttribute("customer", new Customer());
 
         model.addAttribute("categories", super.getAllCategories());
         model.addAttribute("title", "Register");
@@ -56,8 +55,6 @@ public class RegisterController extends SuperController{
                customerForm.setCredentialsNonExpired(true);
                customerForm.setAuthorities("ROLE_USER");
 
-
-
                try{
                    customerDataAccess.save(customerForm);
                } catch (Exception e){
@@ -68,6 +65,9 @@ public class RegisterController extends SuperController{
 
                    return "integrated:register";
                }
+
+               customerForm.setPassword("");
+
                return "integrated:home";
            } else {
                errors.rejectValue("password", "nomatch.password");

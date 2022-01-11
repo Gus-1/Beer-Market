@@ -156,7 +156,8 @@
                 <p class="mb-0">
                     <a href=""> <spring:message code="termsAndConditions"/></a> |
                     <a href="<spring:url value='/privacy' />"> <spring:message code="privacy"/></a> |
-                    <a href="">Cookies</a>
+                    <a href="<spring:url value='/about' />"> <spring:message code="about"/></a> |
+                    <a href=""><spring:message code="cookies"/></a>
                 </p>
 
                 <p> Beer market</p>

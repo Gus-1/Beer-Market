@@ -5,25 +5,23 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import static org.springframework.util.StringUtils.isEmpty;
 
-
 public class Customer implements UserDetails {
 
     private Integer customerId;
     @NotEmpty
     @Size(min=2)
+    @NotBlank
     private String firstName;
     @NotEmpty
     @Size(min=2)
+    @NotBlank
     private String name;
     @NotEmpty
     @Email
@@ -34,6 +32,7 @@ public class Customer implements UserDetails {
     private String phoneNumber;
     @NotEmpty
     @Size(min=10)
+    @NotBlank
     private String address;
     @Nullable
     private Character gender;
@@ -43,7 +42,6 @@ public class Customer implements UserDetails {
     private String password;
     @NotEmpty
     private String confirmationPassword;
-
 
     private String authorities;
     private Boolean accountNonExpired;
@@ -110,8 +108,8 @@ public class Customer implements UserDetails {
         this.customerId = customerId;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUsername(String email) {
+        this.email = email;
     }
 
     public String getFirstName() {

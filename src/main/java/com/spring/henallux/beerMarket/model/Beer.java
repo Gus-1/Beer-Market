@@ -1,12 +1,9 @@
 package com.spring.henallux.beerMarket.model;
 
-import javax.validation.constraints.Positive;
-
 public class Beer {
     private Integer beerId;
     private String label;
     private String description;
-    @Positive
     private Double price;
     private String flavour;
     private String brewery;

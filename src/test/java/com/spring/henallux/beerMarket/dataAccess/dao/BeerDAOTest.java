@@ -1,4 +1,4 @@
-package dataAccess.dao;
+package com.spring.henallux.beerMarket.dataAccess.dao;
 
 import com.spring.henallux.beerMarket.dataAccess.dao.BeerDAO;
 import com.spring.henallux.beerMarket.dataAccess.entity.BeerEntity;
@@ -39,12 +39,12 @@ public class BeerDAOTest {
 
         when(beerRepository.findBeerEntityByBeerId(1)).thenReturn(beerEntity);
 
+
         Beer beer = new Beer(1, "Asahi", "Bière numéro un au Japon, Asahi Super Dry est issue d'une sélection des meilleurs ingrédients." +
                 " La technologie de filtration sur céramique fait de Asahi une bière sèche en bouche qui lui procure une qualité désaltérante non égalée",
                 2.7, "Malté et houblonné", "Asahi Brewers", "Japon", "/images/beers/Asahi.jpg", 5.0,
                 new Category(2));
 
-        Beer beer1 = beerDataAccess.getBeerById(1);
         assertThat(beerDataAccess.getBeerById(1)).isEqualTo(beer);
     }
 }

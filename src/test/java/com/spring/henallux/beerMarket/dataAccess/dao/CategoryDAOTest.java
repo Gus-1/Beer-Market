@@ -1,4 +1,4 @@
-package dataAccess.dao;
+package com.spring.henallux.beerMarket.dataAccess.dao;
 
 import com.spring.henallux.beerMarket.dataAccess.dao.CategoryDAO;
 import com.spring.henallux.beerMarket.dataAccess.entity.CategoryEntity;
@@ -72,12 +72,14 @@ public class CategoryDAOTest {
 
 
         ArrayList<CategoryTranslation> categories = new ArrayList<>();
-        categories.add(new CategoryTranslation(1,1,"Brune"));
-        categories.add(new CategoryTranslation(2,1,"Blonde"));
-        categories.add(new CategoryTranslation(3,1,"Rouge"));
-        categories.add(new CategoryTranslation(4,1,"Ambrée"));
-        categories.add(new CategoryTranslation(5,1,"Noir"));
+        categories.add(new CategoryTranslation(1,null,"Brune"));
+        categories.add(new CategoryTranslation(2,null,"Blonde"));
+        categories.add(new CategoryTranslation(3,null,"Rouge"));
+        categories.add(new CategoryTranslation(4,null,"Ambrée"));
+        categories.add(new CategoryTranslation(5,null,"Noir"));
 
-        assertThat(categoryDAO.getAllCategories()).isEqualTo(categories);
+        ArrayList<CategoryTranslation> allCategories =  categoryDAO.getAllCategories();
+
+        assertThat(allCategories).isEqualTo(categories);
     }
 }

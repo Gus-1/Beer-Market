@@ -37,4 +37,23 @@ public class CategoryTranslation {
     public void setLabel(String label) {
         this.label = label;
     }
+
+
+    //We are not using languageId. Don't need to compare.
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CategoryTranslation categoryTranslation = (CategoryTranslation) o;
+        return categoryId.equals(categoryTranslation.categoryId) && label.equals(categoryTranslation.label);
+    }
+
+    @Override
+    public String toString() {
+        return "CategoryTranslation{" +
+                "categoryId=" + categoryId +
+                ", label='" + label + '\'' +
+                ", languageId='" + languageId + '\'' +
+                '}';
+    }
 }
